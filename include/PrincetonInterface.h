@@ -84,13 +84,19 @@ namespace lima
       void setSensorTemperatureSetpoint(float temp);
 
       // gain attribute
-      Interface::GainType Interface::getAdcAnalogGain() const;
+      Interface::GainType getAdcAnalogGain() const;
       //void setAdcAnalogGain(int gain);
       void setAdcAnalogGain(Interface::GainType gain);
 
       //adcRate attribute
       float getAdcSpeed();
       void setAdcSpeed(float adcSpeed);
+	  
+	  int getAdcQuality() const;
+	  void setAdcQuality(int quality);
+	  
+	  short getAdcPixelBitDepth() const;
+	  void setAdcPixelBitDepth(short pixelBitDepth);
 
     private:
       void _freePixelBuffer();

@@ -487,3 +487,45 @@ void Interface::_freePixelBuffer()
 #endif
   m_pixel_stream = {NULL,0};
 }
+
+int Interface::getAdcQuality() const
+{
+  DEB_MEMBER_FUNCT();
+  piint quality;
+  CHECK_PICAM(Picam_GetParameterIntegerValue(m_cam,
+						   PicamParameter_AdcQuality,
+						   &quality));
+
+  return (int)quality;
+}
+
+void Interface::setAdcQuality(int quality)
+{
+  DEB_MEMBER_FUNCT();
+
+  CHECK_PICAM(Picam_SetParameterIntegerValue(m_cam,
+						   PicamParameter_AdcQuality,
+						   quality));
+}
+
+// PixelBit Detph
+short Interface::getAdcPixelBitDepth() const
+{
+  DEB_MEMBER_FUNCT();
+  piint pixelBitDepth;
+  CHECK_PICAM(Picam_GetParameterIntegerValue(m_cam,
+						   PicamParameter_PixelBitDepth,
+						   &pixelBitDepth));
+
+  return (short)pixelBitDepth;
+}
+
+void Interface::setAdcPixelBitDepth(short pixelBitDepth)
+{
+    DEB_MEMBER_FUNCT();
+
+  CHECK_PICAM(Picam_SetParameterIntegerValue(m_cam,
+						   PicamParameter_PixelBitDepth,
+						   pixelBitDepth));
+}
+	  
